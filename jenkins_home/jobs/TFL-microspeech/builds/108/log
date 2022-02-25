@@ -1,0 +1,379 @@
+Started by timer
+Running as SYSTEM
+Building remotely on [8mha:////4GBG6EnmSHhksD63qr2pbqOmKaOJ9z597jjGakHC0Zh4AAAAtR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz5EgZN/eT83ILSktQifceiXIWwzKKS0sQcBY/EopTyxKJUBc+84pLEvORUBUMAMMLARN4AAAA=[0mArm Virtual Hardware Instance 1 (AVH) in workspace /home/ubuntu/jenkins/workspace/TFL-microspeech
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/ARM-software/VHT-TFLmicrospeech
+ > git init /home/ubuntu/jenkins/workspace/TFL-microspeech # timeout=10
+Fetching upstream changes from https://github.com/ARM-software/VHT-TFLmicrospeech
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1'
+ > git fetch --tags --force --progress -- https://github.com/ARM-software/VHT-TFLmicrospeech +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/ARM-software/VHT-TFLmicrospeech # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Seen branch in repository origin/main
+Seen 1 remote branch
+ > git show-ref --tags -d # timeout=10
+Checking out Revision 22bc9882f1f2ba4f394f5b0879f9668cd4b5bbe7 (origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 22bc9882f1f2ba4f394f5b0879f9668cd4b5bbe7 # timeout=10
+Commit message: "Create packlist.sh"
+ > git rev-list --no-walk 22bc9882f1f2ba4f394f5b0879f9668cd4b5bbe7 # timeout=10
+[TFL-microspeech] $ /bin/sh -xe /tmp/jenkins16893968024870497571.sh
++ echo Jenkins node name is: Arm Virtual Hardware Instance 1
+Jenkins node name is: Arm Virtual Hardware Instance 1
+[TFL-microspeech] $ /usr/bin/env bash /tmp/jenkins17713110500574079990.sh
+(cbuild.sh): Build Invocation 0.10.4 (C) 2021 ARM
+microspeech.Example.cprj validates
+(cbuildgen): Build Process Manager 0.10.4 (C) 2022 ARM
+M650: Command completed successfully.
+(cbuildgen): Build Process Manager 0.10.4 (C) 2022 ARM
+M652: Generated file for project build: '/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/Objects/CMakeLists.txt'
+-- The ASM compiler identification is ARMClang
+-- Found assembler: /opt/armcompiler/bin/armclang
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/Objects
+[1/278] Building ASM object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/GCC/irq_armv8mml.o
+[2/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/VSI/audio/driver/audio_drv.o
+[3/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.o
+[4/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/Board_IO/retarget_stdio.o
+[5/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/main.o
+[6/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/filterbank.o
+[7/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/filterbank_util.o
+[8/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/frontend.o
+[9/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/log_lut.o
+[10/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/frontend_util.o
+[11/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/log_scale.o
+[12/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/pcan_gain_control.o
+[13/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/noise_reduction.o
+[14/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/log_scale_util.o
+[15/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/noise_reduction_util.o
+[16/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/pcan_gain_control_util.o
+[17/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctions.o
+[18/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/window.o
+[19/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/window_util.o
+[20/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/CMSIS_Driver/Driver_FVP_SSE300_MPC.o
+[21/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/CMSIS_Driver/Driver_SSE300_PPC.o
+[22/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/CMSIS_Driver/Driver_SPI.o
+[23/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/CMSIS_Driver/Driver_USART.o
+[24/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctions.o
+[25/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctionsF16.o
+[26/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/BayesFunctions/BayesFunctions.o
+[27/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/BayesFunctions/BayesFunctionsF16.o
+[28/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/CommonTables/CommonTables.o
+[29/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctionsF16.o
+[30/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/ControllerFunctions/ControllerFunctions.o
+[31/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/CommonTables/CommonTablesF16.o
+[32/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/FastMathFunctions/FastMathFunctionsF16.o
+[33/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/DistanceFunctions/DistanceFunctions.o
+[34/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/DistanceFunctions/DistanceFunctionsF16.o
+[35/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/FastMathFunctions/FastMathFunctions.o
+[36/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/FilteringFunctions/FilteringFunctionsF16.o
+[37/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/MatrixFunctions/MatrixFunctions.o
+[38/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctions.o
+[39/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/SupportFunctions/SupportFunctionsF16.o
+[40/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/TransformFunctions/TransformFunctions.o
+[41/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctionsF16.o
+[42/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/FilteringFunctions/FilteringFunctions.o
+[43/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/QuaternionMathFunctions/QuaternionMathFunctions.o
+[44/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/MatrixFunctions/MatrixFunctionsF16.o
+[45/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/SVMFunctions/SVMFunctions.o
+[46/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/SVMFunctions/SVMFunctionsF16.o
+[47/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctionsF16.o
+[48/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctions.o
+[49/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/SupportFunctions/SupportFunctions.o
+[50/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/PoolingFunctions/arm_avgpool_s8.o
+[51/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1_x_n_s8.o
+[52/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_w.o
+[53/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_x.o
+[54/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/DSP/Source/TransformFunctions/TransformFunctionsF16.o
+[55/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_y.o
+[56/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_z.o
+[57/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1x1_HWC_q7_fast_nonsquare.o
+[58/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_fast.o
+[59/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1x1_s8_fast.o
+[60/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_basic.o
+[61/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_lib.o
+[62/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_kernel.o
+[63/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_fast_nonsquare.o
+[64/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_RGB.o
+[65/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_basic.o
+[66/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_fast.o
+[67/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_basic_nonsquare.o
+[68/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_fast_nonsquare.o
+[69/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_s8.o
+[70/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_s8.o
+[71/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_wrapper_s8.o
+[72/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_wrapper_s8.o
+[73/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_3x3_s8.o
+[74/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_s8_opt.o
+[75/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_u8_basic_ver1.o
+[76/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_separable_conv_HWC_q7.o
+[77/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_mat_q7_vec_q15_opt.o
+[78/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q15.o
+[79/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_separable_conv_HWC_q7_nonsquare.o
+[80/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/BasicMathFunctions/arm_elementwise_add_s8.o
+[81/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/BasicMathFunctions/arm_elementwise_mul_s8.o
+[82/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_mat_q7_vec_q15.o
+[83/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q7_opt.o
+[84/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q15_opt.o
+[85/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_s8.o
+[86/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q7.o
+[87/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/PoolingFunctions/arm_max_pool_s8.o
+[88/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ActivationFunctions/arm_nn_activations_q15.o
+[89/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_accumulate_q7_to_q15.o
+[90/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ActivationFunctions/arm_nn_activations_q7.o
+[91/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_q7_q15_reordered.o
+[92/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mul_core_4x_s8.o
+[93/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mul_core_1x_s8.o
+[94/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_add_q7.o
+[95/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_depthwise_conv_nt_t_padded_s8.o
+[96/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_depthwise_conv_nt_t_s8.o
+[97/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_depthwise_conv_s8_core.o
+[98/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_q7_q15.o
+[99/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mult_q15.o
+[100/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_s8_s16.o
+[101/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mult_nt_t_s8.o
+[102/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_s8.o
+[103/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_s8_s16_reordered.o
+[104/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nntables.o
+[105/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mult_q7.o
+[106/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_vec_mat_mult_t_s8.o
+[107/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_no_shift.o
+[108/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_vec_mat_mult_t_svdf_s8.o
+[109/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_reordered_no_shift.o
+[110/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_reordered_with_offset.o
+[111/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/PoolingFunctions/arm_pool_q7_HWC.o
+[112/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ActivationFunctions/arm_relu6_s8.o
+[113/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_with_offset.o
+[114/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_q15.o
+[115/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ActivationFunctions/arm_relu_q7.o
+[116/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ActivationFunctions/arm_relu_q15.o
+[117/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/ReshapeFunctions/arm_reshape_s8.o
+[118/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_q7.o
+[119/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_u8.o
+[120/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_s8.o
+[121/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/Source/os_systick.o
+[122/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_with_batch_q7.o
+[123/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/NN/Source/SVDFunctions/arm_svdf_s8.o
+[124/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/RTE/CMSIS/RTX_Config.o
+[125/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_delay.o
+[126/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/transpose.o
+[127/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_evflags.o
+[128/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/tanh.o
+[129/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_evr.o
+[130/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_msgqueue.o
+[131/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_memory.o
+[132/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_mutex.o
+[133/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_mempool.o
+[134/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/Keil/ARM_Compiler/1.6.3/Source/EventRecorder.o
+[135/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_semaphore.o
+[136/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_system.o
+[137/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_thread.o
+[138/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/CMSIS/5.8.0/CMSIS/RTOS2/RTX/Source/rtx_timer.o
+[139/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/Keil/ARM_Compiler/1.6.3/Source/retarget_io.o
+[140/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/kissfft/0.4.0/src/tools/kiss_fftr.o
+[141/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Board/Device_Definition/device_definition.o
+[142/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/kissfft/0.4.0/src/kiss_fft.o
+[143/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/simple_memory_allocator.o
+[144/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/RTE/Device/SSE-300-MPS3/system_SSE300MPS3.o
+[145/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/c/common.o
+[146/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/RTE/Device/SSE-300-MPS3/startup_fvp_sse300_mps3.o
+[147/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/mpc_sie_drv.o
+[148/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/gpio_cmsdk_drv.o
+[149/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/arm_mps3_io_drv.o
+[150/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/syscounter_armv8-m_read_drv.o
+[151/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/spi_pl022_drv.o
+[152/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/ppc_sse300_drv.o
+[153/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/uart_cmsdk_drv.o
+[154/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/systimer_armv8-m_drv.o
+[155/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/audio_provider.o
+[156/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/syscounter_armv8-m_cntrl_drv.o
+[157/278] Building C object CMakeFiles/microspeech.dir/home/ubuntu/packs/ARM/V2M_MPS3_SSE_300_BSP/1.2.0/Native_Driver/syswdog_armv8-m_drv.o
+[158/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/command_responder.o
+[159/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/feature_provider.o
+[160/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/micro_features/micro_model_settings.o
+[161/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/recognize_commands.o
+[162/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/micro_features/micro_features_generator.o
+[163/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/micro_features/model.o
+[164/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/micro_features/no_micro_features_data.o
+[165/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/micro_features/yes_micro_features_data.o
+[166/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/RTE/Machine_Learning/debug_log.o
+[167/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/fft.o
+[168/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/microfrontend/lib/fft_util.o
+[169/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/micro_speech/src/main_functions.o
+[170/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/activations.o
+[171/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/all_ops_resolver.o
+[172/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/RTE/Machine_Learning/micro_time.o
+[173/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55/RTE/Machine_Learning/system_setup.o
+[174/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/activations_common.o
+[175/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/kernels/kernel_util.o
+[176/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/add_n.o
+[177/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/arg_min_max.o
+[178/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cmsis_nn/add.o
+[179/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/call_once.o
+[180/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/batch_to_space_nd.o
+[181/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/assign_variable.o
+[182/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/ceil.o
+[183/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cast.o
+[184/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/circular_buffer_common.o
+[185/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/depth_to_space.o
+[186/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/circular_buffer.o
+[187/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/concatenation.o
+[188/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/comparisons.o
+[189/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cmsis_nn/conv.o
+[190/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/conv_common.o
+[191/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cumsum.o
+[192/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cmsis_nn/depthwise_conv.o
+[193/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/dequantize.o
+[194/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/depthwise_conv_common.o
+[195/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/core/api/error_reporter.o
+[196/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/elementwise.o
+[197/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/detection_postprocess.o
+[198/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/elu.o
+[199/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/exp.o
+[200/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/fill.o
+[201/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/ethosu.o
+[202/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/expand_dims.o
+[203/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/floor_div.o
+[204/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/core/api/flatbuffer_conversions.o
+[205/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/flatbuffer_utils.o
+[206/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/floor.o
+[207/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/floor_mod.o
+[208/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/gather.o
+[209/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cmsis_nn/fully_connected.o
+[210/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/fully_connected_common.o
+[211/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/memory_planner/greedy_memory_planner.o
+[212/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/gather_nd.o
+[213/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/hard_swish_common.o
+[214/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/hard_swish.o
+[215/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/kernel_util.o
+[216/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/if.o
+[217/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/kernel_runner.o
+[218/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/leaky_relu_common.o
+[219/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/l2_pool_2d.o
+[220/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/l2norm.o
+[221/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/memory_planner/linear_memory_planner.o
+[222/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/leaky_relu.o
+[223/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/logical_common.o
+[224/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/logical.o
+[225/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/log_softmax.o
+[226/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/logistic.o
+[227/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/logistic_common.o
+[228/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/maximum_minimum.o
+[229/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/memory_helpers.o
+[230/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/micro_error_reporter.o
+[231/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/micro_allocator.o
+[232/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/micro_utils.o
+[233/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/micro_graph.o
+[234/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/micro_profiler.o
+[235/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/micro_interpreter.o
+[236/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/micro_string.o
+[237/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/micro_resource_variable.o
+[238/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/mock_micro_graph.o
+[239/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cmsis_nn/pooling.o
+[240/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/neg.o
+[241/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cmsis_nn/mul.o
+[242/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/core/api/op_resolver.o
+[243/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/pack.o
+[244/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/kernels/internal/quantization_util.o
+[245/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/pad.o
+[246/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/pooling_common.o
+[247/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/prelu.o
+[248/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/kernels/internal/reference/portable_tensor_utils.o
+[249/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/quantize_common.o
+[250/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/quantize.o
+[251/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/recording_micro_allocator.o
+[252/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/resize_bilinear.o
+[253/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/read_variable.o
+[254/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/reduce.o
+[255/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/recording_simple_memory_allocator.o
+[256/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/resize_nearest_neighbor.o
+[257/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/reshape.o
+[258/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/round.o
+[259/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/shape.o
+[260/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/space_to_batch_nd.o
+[261/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/schema/schema_utils.o
+[262/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cmsis_nn/softmax.o
+[263/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/softmax_common.o
+[264/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/space_to_depth.o
+[265/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/split.o
+[266/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/sub.o
+[267/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/split_v.o
+[268/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/strided_slice.o
+[269/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/squeeze.o
+[270/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/cmsis_nn/svdf.o
+[271/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/core/api/tensor_utils.o
+[272/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/svdf_common.o
+[273/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/zeros_like.o
+[274/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/transpose_conv.o
+[275/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/unpack.o
+[276/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/test_helpers.o
+[277/278] Building CXX object CMakeFiles/microspeech.dir/home/ubuntu/packs/tensorflow/tensorflow-lite-micro/0.4.0/tensorflow/lite/micro/kernels/var_handle.o
+[278/278] Linking CXX executable microspeech.axf
+Program Size: Code=156550 RO-data=111030 RW-data=13032 ZI-data=167172  
+cbuild.sh finished successfully!
+[TFL-microspeech] $ /usr/bin/env bash /tmp/jenkins16297099148772934404.sh
+Cloning into 'shell2junit'...
+Reduce simulation time to 2s
+Processing results
++++ Removing old junit reports from: /home/ubuntu/jenkins/workspace/TFL-microspeech/results 
+name is: yes1
+class is: default
+
++++ Running case: default.yes1 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output "Heard yes (146) @1000ms"
++++ exit code: 0
++++ error: 0
+name is: no1
+class is: default
+
++++ Running case: default.no1 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output "Heard no (145) @5600ms"
++++ exit code: 0
++++ error: 0
+name is: yes2
+class is: default
+
++++ Running case: default.yes2 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output "Heard yes (143) @9100ms"
++++ exit code: 1
++++ error: 1
+name is: no2
+class is: default
+
++++ Running case: default.no2 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output "Heard no (145) @13600ms"
++++ exit code: 1
++++ error: 1
+name is: yes3
+class is: default
+
++++ Running case: default.yes3 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output "Heard yes (143) @17100ms"
++++ exit code: 1
++++ error: 1
+name is: no3
+class is: default
+
++++ Running case: default.no3 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output "Heard no (145) @21600ms"
++++ exit code: 1
++++ error: 1
+Recording plot data
+Recording test results
+[Checks API] No suitable checks publisher found.
+Build step 'Publish JUnit test result report' changed build result to UNSTABLE
+Finished: UNSTABLE

@@ -1,0 +1,143 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<result plugin="junit@1.55">
+  <suites>
+    <suite>
+      <file>/home/ubuntu/jenkins/workspace/TFL-microspeech/results/TEST-default.xml</file>
+      <name>default</name>
+      <duration>0.010589013</duration>
+      <time>.010589013</time>
+      <enclosingBlocks/>
+      <enclosingBlockNames/>
+      <cases>
+        <case>
+          <duration>0.010589013</duration>
+          <className>default</className>
+          <testName>yes1</testName>
+          <skipped>false</skipped>
+          <stdout>
+
+
++++ Running case: default.yes1 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output &quot;Heard yes (146) @1000ms&quot;
++++ exit code: 0
+
+    </stdout>
+          <stderr>
+
+
+
+    </stderr>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.010194815</duration>
+          <className>default</className>
+          <testName>no1</testName>
+          <skipped>false</skipped>
+          <stdout>
+
+
++++ Running case: default.no1 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output &quot;Heard no (145) @5600ms&quot;
++++ exit code: 0
+
+    </stdout>
+          <stderr>
+
+
+
+    </stderr>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.010545454</duration>
+          <className>default</className>
+          <testName>yes2</testName>
+          <skipped>false</skipped>
+          <stdout>
+
+
++++ Running case: default.yes2 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output &quot;Heard yes (143) @9100ms&quot;
++++ exit code: 0
+
+    </stdout>
+          <stderr>
+
+
+
+    </stderr>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.010617071</duration>
+          <className>default</className>
+          <testName>no2</testName>
+          <skipped>false</skipped>
+          <stdout>
+
+
++++ Running case: default.no2 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output &quot;Heard no (145) @13600ms&quot;
++++ exit code: 0
+
+    </stdout>
+          <stderr>
+
+
+
+    </stderr>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.00696984</duration>
+          <className>default</className>
+          <testName>yes3</testName>
+          <skipped>false</skipped>
+          <stdout>
+
+
++++ Running case: default.yes3 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output &quot;Heard yes (143) @17100ms&quot;
++++ exit code: 0
+
+    </stdout>
+          <stderr>
+
+
+
+    </stderr>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.007021503</duration>
+          <className>default</className>
+          <testName>no3</testName>
+          <skipped>false</skipped>
+          <stdout>
+
+
++++ Running case: default.no3 
++++ working dir: /home/ubuntu/jenkins/workspace/TFL-microspeech/Platform_FVP_Corstone_SSE-300_Ethos-U55
++++ command: check_output &quot;Heard no (145) @21600ms&quot;
++++ exit code: 0
+
+    </stdout>
+          <stderr>
+
+
+
+    </stderr>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+  </suites>
+  <duration>0.010589013</duration>
+  <keepLongStdio>false</keepLongStdio>
+</result>

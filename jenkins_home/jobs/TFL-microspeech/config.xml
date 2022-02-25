@@ -7,7 +7,7 @@
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
-        <numToKeep>20</numToKeep>
+        <numToKeep>10</numToKeep>
         <artifactDaysToKeep>-1</artifactDaysToKeep>
         <artifactNumToKeep>-1</artifactNumToKeep>
       </strategy>
@@ -31,14 +31,10 @@
   </scm>
   <assignedNode>AVH</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <hudson.triggers.TimerTrigger>
-      <spec>H/10 * * * *</spec>
-    </hudson.triggers.TimerTrigger>
-  </triggers>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
@@ -79,8 +75,6 @@ if [ ! -f Platform_FVP_Corstone_SSE-300_Ethos-U55/Objects/microspeech.axf ]; the
   exit 1
 fi
 
-sudo apt install -y ffmpeg
-
 # Environment variables
 export PATH=$PATH:/opt/armcompiler/bin
 export PATH=$PATH:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin
@@ -104,15 +98,15 @@ git clone https://github.com/manolo/shell2junit.git
 
 cd Platform_FVP_Corstone_SSE-300_Ethos-U55/
 
-# 1 run out of 2, run with different input
+# 1 run out of 3, run with different input
 rand=$(od -A n -t d -N 1 /dev/urandom) # between 1 and 256
-if [ 1 -eq &quot;$(echo &quot;$rand &lt; 64&quot; | bc)&quot; ]; then
+if [ 1 -eq &quot;$(echo &quot;$rand &lt; 42&quot; | bc)&quot; ]; then
   echo &quot;Truncate data set to 10s&quot;
   ffmpeg -ss 0 -i test.wav -to 10 -c copy -copyts out.wav
   mv test.wav orig.wav
   mv out.wav test.wav
 else
-  if [ 1 -eq &quot;$(echo &quot;$rand &lt; 128&quot; | bc)&quot; ]; then
+  if [ 1 -eq &quot;$(echo &quot;$rand &lt; 85&quot; | bc)&quot; ]; then
     echo &quot;Truncate data set to 19s&quot;
     ffmpeg -ss 0 -i test.wav -to 19 -c copy -copyts out.wav
     mv test.wav orig.wav
@@ -123,17 +117,29 @@ fi
 # 2 run out of 3, run with different simulation times/workloads
 rand=$(od -A n -t d -N 1 /dev/urandom) # between 1 and 256
 if [ 1 -eq &quot;$(echo &quot;$rand &gt; 170&quot; | bc)&quot; ]; then
-  echo &quot;Reduce simulation time to 1800000000 cycles&quot;
-  VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat --cyclelimit 1800000000 2&gt;&amp;1 | tee output.log
+  echo &quot;Reduce simulation time to 2s&quot;
+  VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &gt; output.log 2&gt;&amp;1 &amp;
+  pid=$!
+  sleep 2
+  kill $pid
 else
-  if [ 1 -eq &quot;$(echo &quot;$rand &lt; 80&quot; | bc)&quot; ]; then
+  if [ 1 -eq &quot;$(echo &quot;$rand &lt; 85&quot; | bc)&quot; ]; then
     echo &quot;Run another workload in the background&quot;
-    ./run_example.sh &amp;
-    ./run_example.sh &amp;
-    ./run_example.sh &amp;
-    ./run_example.sh 2&gt;&amp;1 | tee output.log
+    VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &amp;
+    pid1=$!
+    VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &amp;
+    pid2=$!
+    VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &gt; output.log 2&gt;&amp;1 &amp;
+    pid3=$!
+    sleep 15
+    kill $pid1
+    kill $pid2
+    kill $pid3
   else
-    ./run_example.sh 2&gt;&amp;1 | tee output.log
+    VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &gt; output.log 2&gt;&amp;1 &amp;
+    pid=$!
+    sleep 15
+    kill $pid
   fi
 fi
 
@@ -164,21 +170,21 @@ check_perf () { # $1-string
 #return value of $1 in output.log
 value=`cat output.log | grep &quot;${1}&quot; | awk -F&quot;: &quot; &apos;{print substr($2, 1, length($2)-1)}&apos;`
 }
-echo &apos;&quot;Simulated time&quot;, &quot;Wall time&quot;&apos; &gt; simulation.csv
+echo &quot;Simulated time, Wall time&quot; &gt; simulation.csv
 check_perf &quot;Simulated time&quot;
 simt=$value
 check_perf &quot;Wall time&quot;
 walt=$value 
 echo &quot;$simt, $walt&quot;  &gt;&gt; simulation.csv
 
-echo &apos;&quot;User time&quot;, &quot;System time&quot;&apos; &gt; system.csv
+echo &quot;User time, System time&quot; &gt; system.csv
 check_perf &quot;User time&quot;
 usrt=$value
 check_perf &quot;System time&quot;
 syst=$value
 echo &quot;$usrt, $syst&quot;  &gt;&gt; system.csv
 
-echo &apos;&quot;Performance index&quot;&apos; &gt; perf.csv
+echo &quot;Performance index&quot; &gt; perf.csv
 check_perf &quot;Performance index&quot;
 perf=$value
 echo &quot;$perf&quot;  &gt;&gt; perf.csv
@@ -212,9 +218,9 @@ exit 0</command>
             </hudson.plugins.plot.CSVSeries>
           </series>
           <group>simulation</group>
-          <numBuilds>20</numBuilds>
+          <numBuilds>10</numBuilds>
           <csvFileName>plot-8943234143000731667.csv</csvFileName>
-          <csvLastModification>1645700118655</csvLastModification>
+          <csvLastModification>0</csvLastModification>
           <style>line</style>
           <useDescr>false</useDescr>
           <keepRecords>false</keepRecords>
@@ -244,9 +250,9 @@ exit 0</command>
             </hudson.plugins.plot.CSVSeries>
           </series>
           <group>simulation</group>
-          <numBuilds>20</numBuilds>
+          <numBuilds>10</numBuilds>
           <csvFileName>plot-330230249087361286.csv</csvFileName>
-          <csvLastModification>1645700119014</csvLastModification>
+          <csvLastModification>0</csvLastModification>
           <style>stackedbar</style>
           <useDescr>false</useDescr>
           <keepRecords>false</keepRecords>
@@ -276,9 +282,9 @@ exit 0</command>
             </hudson.plugins.plot.CSVSeries>
           </series>
           <group>simulation</group>
-          <numBuilds>20</numBuilds>
+          <numBuilds>10</numBuilds>
           <csvFileName>plot-2202074597937506673.csv</csvFileName>
-          <csvLastModification>1645700119382</csvLastModification>
+          <csvLastModification>0</csvLastModification>
           <style>line</style>
           <useDescr>false</useDescr>
           <keepRecords>false</keepRecords>
@@ -290,7 +296,7 @@ exit 0</command>
       </plots>
     </hudson.plugins.plot.PlotPublisher>
     <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.55">
-      <testResults>Platform_FVP_Corstone_SSE-300_Ethos-U55/results/*.xml</testResults>
+      <testResults>results/*.xml</testResults>
       <keepLongStdio>false</keepLongStdio>
       <healthScaleFactor>1.0</healthScaleFactor>
       <allowEmptyResults>false</allowEmptyResults>
