@@ -35,7 +35,7 @@ Locally, open the Jenkins' web interface that was started with Docker: [http://l
 
 Follow the steps in the web interface to configure Jenkins with the suggested plugins. Note that the default password for the admin is displayed in the terminal running the docker instance.
 
-Set up the user admin with a password of your choice and go on with the default settings. When logged in, you should see the "TFL-microspeech" job in the Dashboard. You can already find a build history and a test result trend plot. The "Arm Virtual Hardware Instance 1" in the list of build executors. "Arm Virtual Hardware Instance 1" appears offline for now.
+Set up the user admin with a password of your choice and go on with the default settings. When logged in, you should see the "TFL-microspeech" job in the Dashboard. You can already find a build history and a test result trend plot. The "ArmVirtualHardware_1" is in the list of build executors and appears offline for now.
 
 ![The Jenkins interface when launched for the first time](img/firstlaunch.png)
 
@@ -58,14 +58,16 @@ You can now view the *Plots* section for the TFL-microspeech job.
 
 ## Configure Jenkins node
 
-From the list of build executors in the Dashboard, select *Arm Virtual Hardware Instance 1* => *Configure*:
+From the list of build executors in the Dashboard, select *ArmVirtualHardware_1* => *Configure*:
 
+- Make sure *Launch method* is set to *Launch agents via SSH*
 - Specify the host IP of the instance that has been launched earlier
 - In *Credentials*, click on *Add* =>*Jenkins*
 - - Specify *SSH username with private key*
 - - Specify _ubuntu_ in *username*
 - - In *Private key: Enter directly*, add and copy the jenkins\_agent\_key private key created on the AVH instance earlier, specify the passphrase if needed
 - - Add key and select *ubuntu* from the drop-down menu
+- Make sure *Host Key Verification Strategy* is set to *Manually trusted Verification Strategy*
 - Save configuration
 - Click on *Launch agent* and *Trust SSH Host Key* to make the connection for the first time. When connected, the node appears *idle* i.e. ready to run a job.
 
