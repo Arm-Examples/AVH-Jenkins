@@ -46,8 +46,8 @@ Go to *Manage Jenkins* => *Jenkins CLI* and download *jenkins-cli.jar* (e.g. to 
 In a different terminal window, type the following commands to install the plugin and restart jenkins. You will need to have java installed locally:
 
 ```
-$ java -jar ~/Downloads/jenkins-cli.jar -auth admin:avh -s http://localhost:8080/ -webSocket install-plugin Plot -deploy
-$ java -jar ~/Downloads/jenkins-cli.jar -auth admin:avh -s http://localhost:8080/ -webSocket restart
+$ java -jar ~/Downloads/jenkins-cli.jar -auth admin:<password> -s http://localhost:8080/ -webSocket install-plugin Plot -deploy
+$ java -jar ~/Downloads/jenkins-cli.jar -auth admin:<password> -s http://localhost:8080/ -webSocket restart
 ```
 
 From the web browser, refresh and log in as admin again: [http://localhost:8080](http://localhost:8080)
