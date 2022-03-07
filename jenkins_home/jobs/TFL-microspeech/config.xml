@@ -1,0 +1,316 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>TFLmicrospeech Jenkins example workflow</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>10</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@4.10.3">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/ARM-software/VHT-TFLmicrospeech</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>**</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="empty-list"/>
+    <extensions/>
+  </scm>
+  <assignedNode>AVH</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;Jenkins node name is: $NODE_NAME&quot;</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/usr/bin/env bash
+
+# Environment variables
+export PATH=$PATH:/opt/armcompiler/bin
+export PATH=$PATH:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin
+export PATH=$PATH:/opt/FVP_ARM_Std_Library/FVP_MPS2
+export PATH=$PATH:/opt/FVP_Corstone_SSE-300/models/Linux64_GCC-6.4
+export CMSIS_PACK_ROOT=/home/ubuntu/packs
+export CMSIS_COMPILER_ROOT=/opt/cbuild/etc
+export CMSIS_BUILD_ROOT=/opt/cbuild/bin
+export PATH=/opt/cbuild/bin:$PATH
+export ARMLMD_LICENSE_FILE=/opt/data.dat
+export PATH=$PATH:/opt/VHT
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/VHT
+export ARMCOMPILER6_CLANGOPT=-Wno-license-management
+export ARMCOMPILER6_LINKOPT=--diag_suppress=9931
+export ARMCOMPILER6_FROMELFOPT=--diag_suppress=9931
+export ARMCOMPILER6_ASMOPT=--diag_suppress=9931
+
+cd Platform_FVP_Corstone_SSE-300_Ethos-U55/
+cbuild.sh microspeech.Example.cprj
+exit $?</command>
+      <configuredLocalRules/>
+      <unstableReturn>1</unstableReturn>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/usr/bin/env bash
+
+if [ ! -f Platform_FVP_Corstone_SSE-300_Ethos-U55/Objects/microspeech.axf ]; then
+  echo &quot;Executable not found&quot;
+  exit 1
+fi
+
+# Environment variables
+export PATH=$PATH:/opt/armcompiler/bin
+export PATH=$PATH:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin
+export PATH=$PATH:/opt/FVP_ARM_Std_Library/FVP_MPS2
+export PATH=$PATH:/opt/FVP_Corstone_SSE-300/models/Linux64_GCC-6.4
+export CMSIS_PACK_ROOT=/home/ubuntu/packs
+export CMSIS_COMPILER_ROOT=/opt/cbuild/etc
+export CMSIS_BUILD_ROOT=/opt/cbuild/bin
+export PATH=/opt/cbuild/bin:$PATH
+export ARMLMD_LICENSE_FILE=/opt/data.dat
+export PATH=$PATH:/opt/VHT
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/VHT
+export ARMCOMPILER6_CLANGOPT=-Wno-license-management
+export ARMCOMPILER6_LINKOPT=--diag_suppress=9931
+export ARMCOMPILER6_FROMELFOPT=--diag_suppress=9931
+export ARMCOMPILER6_ASMOPT=--diag_suppress=9931
+
+# For unit tests
+git clone https://github.com/manolo/shell2junit.git
+. ./shell2junit/sh2ju.sh
+
+cd Platform_FVP_Corstone_SSE-300_Ethos-U55/
+
+# 1 run out of 3, run with different input
+rand=$(od -A n -t d -N 1 /dev/urandom) # between 1 and 256
+if [ 1 -eq &quot;$(echo &quot;$rand &lt; 42&quot; | bc)&quot; ]; then
+  echo &quot;Truncate data set to 10s&quot;
+  ffmpeg -ss 0 -i test.wav -to 10 -c copy -copyts out.wav
+  mv test.wav orig.wav
+  mv out.wav test.wav
+else
+  if [ 1 -eq &quot;$(echo &quot;$rand &lt; 85&quot; | bc)&quot; ]; then
+    echo &quot;Truncate data set to 19s&quot;
+    ffmpeg -ss 0 -i test.wav -to 19 -c copy -copyts out.wav
+    mv test.wav orig.wav
+    mv out.wav test.wav
+  fi
+fi
+
+# 2 run out of 3, run with different simulation times/workloads
+rand=$(od -A n -t d -N 1 /dev/urandom) # between 1 and 256
+if [ 1 -eq &quot;$(echo &quot;$rand &gt; 170&quot; | bc)&quot; ]; then
+  echo &quot;Reduce simulation time to 2s&quot;
+  VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &gt; output.log 2&gt;&amp;1 &amp;
+  pid=$!
+  sleep 2
+  kill $pid
+else
+  if [ 1 -eq &quot;$(echo &quot;$rand &lt; 85&quot; | bc)&quot; ]; then
+    echo &quot;Run another workload in the background&quot;
+    VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &amp;
+    pid1=$!
+    VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &amp;
+    pid2=$!
+    VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &gt; output.log 2&gt;&amp;1 &amp;
+    pid3=$!
+    sleep 15
+    kill $pid1
+    kill $pid2
+    kill $pid3
+  else
+    VHT_Corstone_SSE-300_Ethos-U55 -V &quot;../VSI/audio/python&quot; -f fvp_config.txt -a Objects/microspeech.axf --stat &gt; output.log 2&gt;&amp;1 &amp;
+    pid=$!
+    sleep 15
+    kill $pid
+  fi
+fi
+
+echo &quot;Processing results&quot;
+
+# clean old reports
+juLogClean
+# test report
+check_output () { # $1-string
+#check if $1 is found in output.log
+if grep -q &quot;${1}&quot; output.log; then 
+  return 0
+else
+  return 1
+fi
+}
+
+juLog  -name=yes1		check_output &quot;Heard yes (146) @1000ms&quot;
+juLog  -name=no1		check_output &quot;Heard no (145) @5600ms&quot;
+juLog  -name=yes2		check_output &quot;Heard yes (143) @9100ms&quot;
+juLog  -name=no2		check_output &quot;Heard no (145) @13600ms&quot;
+juLog  -name=yes3		check_output &quot;Heard yes (143) @17100ms&quot;
+juLog  -name=no3		check_output &quot;Heard no (145) @21600ms&quot;
+
+# check performance
+# performance report
+check_perf () { # $1-string
+#return value of $1 in output.log
+value=`cat output.log | grep &quot;${1}&quot; | awk -F&quot;: &quot; &apos;{print substr($2, 1, length($2)-1)}&apos;`
+}
+echo &quot;Simulated time, Wall time&quot; &gt; simulation.csv
+check_perf &quot;Simulated time&quot;
+simt=$value
+check_perf &quot;Wall time&quot;
+walt=$value 
+echo &quot;$simt, $walt&quot;  &gt;&gt; simulation.csv
+
+echo &quot;User time, System time&quot; &gt; system.csv
+check_perf &quot;User time&quot;
+usrt=$value
+check_perf &quot;System time&quot;
+syst=$value
+echo &quot;$usrt, $syst&quot;  &gt;&gt; system.csv
+
+echo &quot;Performance index&quot; &gt; perf.csv
+check_perf &quot;Performance index&quot;
+perf=$value
+echo &quot;$perf&quot;  &gt;&gt; perf.csv
+
+exit 0</command>
+      <configuredLocalRules/>
+      <unstableReturn>1</unstableReturn>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.plot.PlotPublisher plugin="plot@2.1.10">
+      <plots>
+        <hudson.plugins.plot.Plot>
+          <title>Execution time</title>
+          <description>Simulation and execution time</description>
+          <yaxis>time (s)</yaxis>
+          <series>
+            <hudson.plugins.plot.CSVSeries>
+              <file>Platform_FVP_Corstone_SSE-300_Ethos-U55/simulation.csv</file>
+              <label></label>
+              <fileType>csv</fileType>
+              <inclusionFlag>OFF</inclusionFlag>
+              <exclusionValues></exclusionValues>
+              <exclusionValuesList class="java.util.Arrays$ArrayList">
+                <a class="string-array">
+                  <string></string>
+                </a>
+              </exclusionValuesList>
+              <url></url>
+              <displayTableFlag>false</displayTableFlag>
+            </hudson.plugins.plot.CSVSeries>
+          </series>
+          <group>simulation</group>
+          <numBuilds>10</numBuilds>
+          <csvFileName>plot-8943234143000731667.csv</csvFileName>
+          <csvLastModification>0</csvLastModification>
+          <style>line</style>
+          <useDescr>false</useDescr>
+          <keepRecords>false</keepRecords>
+          <exclZero>false</exclZero>
+          <logarithmic>false</logarithmic>
+          <yaxisMinimum></yaxisMinimum>
+          <yaxisMaximum></yaxisMaximum>
+        </hudson.plugins.plot.Plot>
+        <hudson.plugins.plot.Plot>
+          <title>System time</title>
+          <description>System and user time</description>
+          <yaxis>time (s)</yaxis>
+          <series>
+            <hudson.plugins.plot.CSVSeries>
+              <file>Platform_FVP_Corstone_SSE-300_Ethos-U55/system.csv</file>
+              <label></label>
+              <fileType>csv</fileType>
+              <inclusionFlag>OFF</inclusionFlag>
+              <exclusionValues></exclusionValues>
+              <exclusionValuesList class="java.util.Arrays$ArrayList">
+                <a class="string-array">
+                  <string></string>
+                </a>
+              </exclusionValuesList>
+              <url></url>
+              <displayTableFlag>false</displayTableFlag>
+            </hudson.plugins.plot.CSVSeries>
+          </series>
+          <group>simulation</group>
+          <numBuilds>10</numBuilds>
+          <csvFileName>plot-330230249087361286.csv</csvFileName>
+          <csvLastModification>0</csvLastModification>
+          <style>stackedbar</style>
+          <useDescr>false</useDescr>
+          <keepRecords>false</keepRecords>
+          <exclZero>false</exclZero>
+          <logarithmic>false</logarithmic>
+          <yaxisMinimum></yaxisMinimum>
+          <yaxisMaximum></yaxisMaximum>
+        </hudson.plugins.plot.Plot>
+        <hudson.plugins.plot.Plot>
+          <title>Performance index</title>
+          <description></description>
+          <yaxis></yaxis>
+          <series>
+            <hudson.plugins.plot.CSVSeries>
+              <file>Platform_FVP_Corstone_SSE-300_Ethos-U55/perf.csv</file>
+              <label></label>
+              <fileType>csv</fileType>
+              <inclusionFlag>OFF</inclusionFlag>
+              <exclusionValues></exclusionValues>
+              <exclusionValuesList class="java.util.Arrays$ArrayList">
+                <a class="string-array">
+                  <string></string>
+                </a>
+              </exclusionValuesList>
+              <url></url>
+              <displayTableFlag>false</displayTableFlag>
+            </hudson.plugins.plot.CSVSeries>
+          </series>
+          <group>simulation</group>
+          <numBuilds>10</numBuilds>
+          <csvFileName>plot-2202074597937506673.csv</csvFileName>
+          <csvLastModification>0</csvLastModification>
+          <style>line</style>
+          <useDescr>false</useDescr>
+          <keepRecords>false</keepRecords>
+          <exclZero>false</exclZero>
+          <logarithmic>false</logarithmic>
+          <yaxisMinimum></yaxisMinimum>
+          <yaxisMaximum></yaxisMaximum>
+        </hudson.plugins.plot.Plot>
+      </plots>
+    </hudson.plugins.plot.PlotPublisher>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.55">
+      <testResults>results/*.xml</testResults>
+      <keepLongStdio>false</keepLongStdio>
+      <healthScaleFactor>1.0</healthScaleFactor>
+      <allowEmptyResults>false</allowEmptyResults>
+      <skipPublishingChecks>false</skipPublishingChecks>
+      <checksName></checksName>
+      <skipMarkingBuildUnstable>false</skipMarkingBuildUnstable>
+    </hudson.tasks.junit.JUnitResultArchiver>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.40">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
